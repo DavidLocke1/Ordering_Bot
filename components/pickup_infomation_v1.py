@@ -1,0 +1,5 @@
+print("")
+name = input("Please enter your name ")
+print(name)
+phonenumber = input("Please enter your phone number ")
+print(phonenumber)
