@@ -32,6 +32,6 @@ question = ("Please enter your phone number ")
 user_details['phonenumber'] = not_valid_numonly(question)
 print(user_details['phonenumber'])
 
-
+print("")
 print(user_details['name'])
 print(user_details['phonenumber'])
