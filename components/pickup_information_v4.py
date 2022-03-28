@@ -9,9 +9,6 @@ def not_valid(question):
             return answer.title()
         else:
             print("Sorry this cannot be blank")
-        
-
-
 
 question = ("Please enter your name ")
 user_details['name'] = not_valid(question)
