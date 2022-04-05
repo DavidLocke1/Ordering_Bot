@@ -1,6 +1,3 @@
-from asyncore import close_all
-
-
 menu_items = ("Burger Budgie Special","Cheese Burger","Vegetarian Burger","Big Budgie Burger","Itsy-bitsy Burger",
               "Spiced chicken burger","Bacon-beef burger","Mega beef stacker burger","Beef stacker burger",
               "Seafood supreme burger","BBQ Eternal burger","Supreme stacker burger")
