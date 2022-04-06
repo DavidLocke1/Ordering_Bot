@@ -80,17 +80,14 @@ def ordering():
 ordering()
 
 def deliverycharge():
-    if order_amount <= 5 and delivery_type == "delivery":
+    if order_amount < 5 and delivery_type == "delivery":
         order_items.append("Delivery Charge")
         order_prices.append(9)
-        print(order_amount)
     elif delivery_type == "delivery":
         order_items.append("Delivery Charge")
         order_prices.append(0)
-        print("free")
-    else:
-        print("hhhhhahhwuiefbeuf")
+
 
 deliverycharge()
 
-
+print(order_items)

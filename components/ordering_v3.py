@@ -13,12 +13,8 @@ order_prices = []
 def menu():
     table = []
     count = 0
-    #menu_max_length = 0
     while count in range(len(menu_items)):
         table.append([count+1,menu_items[count],menu_prices[count]])
-        #item_length = len(menu_items[count])
-        #if item_length > menu_max_length:
-        #    menu_max_length = item_length
         count = count + 1
 
     for row in table:
@@ -28,38 +24,29 @@ def ordering():
     while True:
         try:
             order_count = int(input("How many burgers would you like to order? "))
-            break
+            if order_count == 0:
+                print("Cannot order 0 Burgers")
+            else:
+                break
         except ValueError:
             print("This cannot be blank and must be a number")
     for item in range(order_count):
         while order_count > 0:
-            print("PLease enter a number between 1 and 12 for ordering")
+            print("Please enter a number between 1 and 12 for ordering")
             while True:
                 try:
                     order = int(input("please enter a number from the menu to order your food "))
-                    if order >= 1 and order <= len(menu_items) + 1:
+                    if order >= 1 and order <= len(menu_items):
+                        order = order - 1
+                        order_count = order_count - 1
+                        order_items.append(menu_items[order])
+                        order_prices.append(menu_prices[order])
+                        print("{} ${:.2f}".format(menu_items[order], menu_prices[order]))
                         break
                     else:
                         print("Input must be a number from the menu")
                 except ValueError:
                     print("Input must be a number and cannot be blank")
-            order = order - 1
-            order_count = order_count - 1
-            order_items.append(menu_items[order])
-            order_prices.append(menu_prices[order])
-            print("{} ${:.2f}".format(menu_items[order], menu_prices[order]))
     
 
 ordering()
-#
-#def deliverycharge():
-#    if order_amount <= 5:
-#        order_items.append("Delivery Charge")
-#        order_prices.append(9)
-#        print(order_amount)
-#    else:
-#        print("hhhhhahhwuiefbeuf")
-
-#deliverycharge()
-
-
