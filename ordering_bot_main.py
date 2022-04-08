@@ -87,7 +87,7 @@ def order_type():
             elif delivery_option == 2:
                 print("Delivery")
                 delivery_request()
-                delivery_type = "delvivery"
+                delivery_type = "delivery"
                 break
             else:
                 print("Please choose pickup or delivery")
@@ -191,7 +191,30 @@ def deliverycharge():
     elif delivery_type == "delivery":
         order_items.append("Delivery Charge")
         order_prices.append(0)
-# reciet function
+# receipt function
+def receipt_printout():
+    totalcost = sum(order_prices)
+    table = []
+    table.append(["User Details","-"*20])
+    table.append(["Name",user_details['name']])
+    table.append(["Phonenumber",user_details['phonenumber']])
+    if delivery_type == "delivery":
+        table.append(["Address","-"*20])
+        table.append(["HouseNumber",user_details['housenumber']])
+        table.append(["StreetName",user_details['streetname']])
+        table.append(["Suburb",user_details['suburb']])
+    for row in table:
+        print("{:<15}{:<20}".format(*row))
+    table = []
+    count = 0
+    print("Order - - - - - - - - - - - - -")
+    while count in range(len(order_items)):
+        table.append([order_items[count],order_prices[count]])
+        count = count + 1
+    for row in table:
+        print("{:<30} ${:<6.2f}".format(*row))
+    print("Cost - - - - - - - - - - - - - -")
+    print("{:<30}${:<6.2f}".format("Total Cost",totalcost))
 
 # Confirm or cancel function
 
@@ -204,6 +227,9 @@ def main():
     menu()
     ordering()
     deliverycharge()
+    receipt_printout()
 
 # Running program
 main()
+print(user_details)
+print(order_items)
