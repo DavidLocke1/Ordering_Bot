@@ -7,7 +7,7 @@ while True:
             print("Your order has been confirmed")
             break
         elif confirmation == 2:
-            print("you have cnceled your order")
+            print("you have canceled your order")
             break
         else:
             print("please enter 1 or 2")
