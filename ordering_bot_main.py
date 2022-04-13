@@ -2,13 +2,12 @@ import random
 from random import randint
 from tkinter import N
 from operator import truediv
+import sys
 
 # dictionaries and lists
 user_details = {}
-
 names = ["Mark", "Pheobe", "Sally", "Michael", "Denise",
          "Ellen", "Eris", "Moana", "Lewis", "Lara"]
-
 menu_items = ("Burger Budgie Special","Cheese Burger","Vegetarian Burger","Big Budgie Burger","Itsy-bitsy Burger",
               "Spiced chicken burger","Bacon-beef burger","Mega beef stacker burger","Beef stacker burger",
               "Seafood supreme burger","BBQ Eternal burger","Supreme stacker burger")
@@ -102,13 +101,11 @@ def pickup_request():
     question = ("Please enter your name ")
     user_details['name'] = not_valid_alphaonly(question)
     print(user_details['name'])
-
     question = ("Please enter your phone number ")
     phone_low = 7
     phone_high = 10
     user_details['phonenumber'] = phone_check(question,phone_low,phone_high)
     print(user_details['phonenumber'])
-
     print("")
     print(user_details['name'])
     print(user_details['phonenumber'])
@@ -118,25 +115,20 @@ def delivery_request():
     question = ("Please enter your name ")
     user_details['name'] = not_valid_alphaonly(question)
     print(user_details['name'])
-
     question = ("Please enter your phone number ")
     phone_low = 7
     phone_high = 10
     user_details['phonenumber'] = phone_check(question,phone_low,phone_high)
     print(user_details['phonenumber'])
-
     question = ("What is your house number? ")
     user_details['housenumber'] = not_valid(question)
     print(user_details['housenumber'])
-
     question = ("Please enter your street name ")
     user_details['streetname'] = not_valid_alphaonly(question)
     print(user_details['streetname'])
-
     question = ("Please enter your suburb ")
     user_details['suburb'] = not_valid_alphaonly(question)
     print(user_details['suburb'])
-
     print("")
     print(user_details['name'])
     print(user_details['phonenumber'])
@@ -191,6 +183,7 @@ def deliverycharge():
     elif delivery_type == "delivery":
         order_items.append("Delivery Charge")
         order_prices.append(0)
+
 # receipt function
 def receipt_printout():
     totalcost = sum(order_prices)
@@ -239,6 +232,27 @@ def confirm_cancel():
             print("you must enter a number between 1 and 2 for confirm or cancel")
 
 # new order or exit function
+def exit():
+    print("Would you like to restart the program or exit")
+    print("To exit type 1")
+    print("To order again type 2")
+    while True:
+        try:
+            restart = int(input("Please enter a number "))
+            if restart == 1:
+                print("Exit")
+                sys.exit()
+            elif restart == 2:
+                print("\n\n\n\nBegining New Order\n\n\n\n")
+                user_details.clear()
+                order_items.clear()
+                order_prices.clear()
+                main()
+                break
+            else:
+                print("number must be 1 or 2")
+        except ValueError:
+            print("You must enter 1 or 2 to exit or start a new order")
 
 # main function
 def main():
@@ -249,6 +263,7 @@ def main():
     deliverycharge()
     receipt_printout()
     confirm_cancel()
+    exit()
 
 # Running program
 main()
