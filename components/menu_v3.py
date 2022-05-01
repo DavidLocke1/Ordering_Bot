@@ -14,7 +14,6 @@ def menu():
         #if item_length > menu_max_length:
         #    menu_max_length = item_length
         count = count + 1
-
     for row in table:
         print("{: >5} {: <30} ${: <6.2f}".format(*row))
 

@@ -203,6 +203,7 @@ def ordering(): # Defines the function ordering()
             order_items.append(menu_items[order]) # Adds the correct item from the menu to the order items using the order number from the while_true function
             order_prices.append(menu_prices[order]) # Adds the correct price for the item to the order_prices list using the count variable
             print("{} ${:.2f}".format(menu_items[order], menu_prices[order])) # Prints order using item name from one list and price from other and formats them with the correct amount of bullet points
+            print("")
 
 # Calculates the total delivery charge for if the user choose delivery
 # Uses no parameters but does use order_amount and delivery_type global variables
@@ -258,6 +259,7 @@ def confirm_cancel(): # Defines the function confirm_cancel so it can be called 
             print("Your order will be deliveried shortly") # Prints message
     elif confirmation == 2: # Checks if the order has been canceled
         print("you have canceled your order") # Prints cancel message
+    print("")
 
 # Allows the user to choose to either start a new order or exit
 # Uses no parameters
@@ -281,7 +283,6 @@ def exit(): # Defines the function exit so it can be called
 
 # Calls functions in correct order to run the program
 def main(): # Defines main function which is the main function and runs everything
-    print(user_details)
     welcome_message() # Calls the function Welcome_message to display welcome message
     order_type() # Calls the function order_type to allow the user to choose pickup or delivery
     menu() # Call the function menu which displays the menu
